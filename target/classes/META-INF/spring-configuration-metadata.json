@@ -1,0 +1,22 @@
+{
+  "groups": [
+    {
+      "name": "rtsp.server",
+      "type": "com.rtsp.rtspserver.config.RtspProperties",
+      "sourceType": "com.rtsp.rtspserver.config.RtspProperties"
+    }
+  ],
+  "properties": [
+    {
+      "name": "rtsp.server.host",
+      "type": "java.lang.String",
+      "sourceType": "com.rtsp.rtspserver.config.RtspProperties"
+    },
+    {
+      "name": "rtsp.server.port",
+      "type": "java.lang.Integer",
+      "sourceType": "com.rtsp.rtspserver.config.RtspProperties"
+    }
+  ],
+  "hints": []
+}
