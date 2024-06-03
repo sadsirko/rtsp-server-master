@@ -25,7 +25,7 @@ public class DescribeAction implements MethodAction {
 
     private DescribeAction() {}
 //    private String rtspSourceUrl = "rtsp://192.168.168.152:554";
-    private String rtspSourceUrl = "rtsp://192.168.0.183:554";
+    private String rtspSourceUrl = "rtsp://192.168.0.138:554";
 //    private String rtspSourceUrl = "rtsp://192.168.1.5:554";
 
     public String getRtspSourceUrl() {

@@ -28,8 +28,7 @@ public class SecurityConfig {
     @Bean
     public UserDetailsService userDetailsService() {
         UserDetails user = User.withDefaultPasswordEncoder()
-                .username("1")
-                .password("1")
+
                 .roles("USER")  // Make sure the role "USER" is enough to access your protected resources
                 .build();
         return new InMemoryUserDetailsManager(user);
