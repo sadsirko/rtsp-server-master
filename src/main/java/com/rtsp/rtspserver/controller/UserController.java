@@ -33,11 +33,15 @@ public class UserController {
         return user != null ? ResponseEntity.ok(user) : ResponseEntity.notFound().build();
     }
 
+    // Оновлення користувача
     @PutMapping("/{id}")
     public ResponseEntity<User> updateUser(@PathVariable int id, @RequestBody User user) {
-        user.setUserId(id);
-        boolean updatedUser = userService.updateUser(user.getUserId(),user.getUserLogin(), user.getRoleId(), user.getHashPassword());
-        return updatedUser ? ResponseEntity.ok().build() : ResponseEntity.notFound().build();
+        boolean updatedUser = userService.updateUser(id, user.getUserLogin(), user.getRoleId(), user.getHashPassword());
+        if (updatedUser) {
+            return (ResponseEntity<User>) ResponseEntity.ok();
+        } else {
+            return ResponseEntity.notFound().build();
+        }
     }
 
     @GetMapping

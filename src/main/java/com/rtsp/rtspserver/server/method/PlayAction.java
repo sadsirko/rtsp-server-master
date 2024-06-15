@@ -10,7 +10,7 @@ import io.netty.handler.codec.rtsp.RtspHeaderNames;
 import io.netty.handler.codec.rtsp.RtspVersions;
 
 public class PlayAction implements MethodAction {
-    private static PlayAction INSTANCE = new PlayAction();
+    private static final PlayAction INSTANCE = new PlayAction();
 
     private PlayAction() {
     }

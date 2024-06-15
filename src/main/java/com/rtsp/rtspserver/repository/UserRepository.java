@@ -13,7 +13,7 @@ import java.util.Optional;
 
 @Repository
 public class UserRepository {
-    private Connection conn;
+    private final Connection conn;
 
     public UserRepository() throws SQLException {
         this.conn = DatabaseConnection.getConnection();

@@ -23,7 +23,7 @@ import static org.bytedeco.ffmpeg.global.avutil.av_log_set_level;
 
 @Slf4j
 public class RtspSession {
-    private static AtomicInteger RTP_PORT = new AtomicInteger(34542);
+    private static final AtomicInteger RTP_PORT = new AtomicInteger(34542);
 
     private FFmpegFrameRecorder recorder;
     private FFmpegFrameRecorder recorderSave;
@@ -35,7 +35,7 @@ public class RtspSession {
     private static final boolean AUDIO_ENABLED = false;
 
     @Getter
-    private Channel channel;
+    private final Channel channel;
 
     private String rtpUrl;
 
@@ -90,14 +90,12 @@ public class RtspSession {
     }
 
     public void sendPacket(FFmpegFrameGrabber grabber, AVPacket packet) throws FFmpegFrameRecorder.Exception {
-//        log.info("Sending packet: pts={}, dts={}, size={}", packet.pts(), packet.dts(), packet.size());
         try {
             if (recorder == null) {
                 prepareFrameRecorder(grabber);
             }
 
             recorder.recordPacket(packet);
-//            FFmpegLogCallback.set();
         } catch (Exception e) {
             log.error("Error recording packet", e);
         }
@@ -125,8 +123,6 @@ public class RtspSession {
             frameSender.unsubscribe(this);
         }
     }
-
-
     public String parseTransport(String transport) {
         log.info(transport);
         String[] split = transport.split(";");
@@ -134,7 +130,7 @@ public class RtspSession {
         int remoteRtpPort = Integer.parseInt(remotePort[0].substring(remotePort[0].indexOf("=") + 1));
         int serverRtpPort = RTP_PORT.getAndIncrement();
         int serverRtcpPort = RTP_PORT.getAndIncrement();
-        log.info("remoteport" + String.valueOf(remoteRtpPort));
+        log.info("remoteport" + remoteRtpPort);
         String remoteIp = getRemoteIp();
         String serverIp;
         try {
@@ -157,8 +153,7 @@ public class RtspSession {
     public String getRemoteIp() {
         SocketAddress remoteAddress = channel.remoteAddress();
         log.info("getIp of user", remoteAddress);
-        if (remoteAddress instanceof InetSocketAddress) {
-            InetSocketAddress inetSocketAddress = (InetSocketAddress) remoteAddress;
+        if (remoteAddress instanceof InetSocketAddress inetSocketAddress) {
             return inetSocketAddress.getAddress().getHostAddress();
         }
         return "unknown";

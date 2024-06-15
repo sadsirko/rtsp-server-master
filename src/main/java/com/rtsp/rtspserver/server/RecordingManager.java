@@ -11,9 +11,9 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 @Slf4j
 public class RecordingManager {
-    private ExecutorService executor = Executors.newCachedThreadPool();
-    private Map<String, Future<?>> recordings = new ConcurrentHashMap<>();
-    private Map<String, PacketRecorder> recorders = new ConcurrentHashMap<>();
+    private final ExecutorService executor = Executors.newCachedThreadPool();
+    private final Map<String, Future<?>> recordings = new ConcurrentHashMap<>();
+    private final Map<String, PacketRecorder> recorders = new ConcurrentHashMap<>();
 
     public synchronized void startRecording(String streamId, String inputUrl, String outputUrl, long length) {
         if (!recordings.containsKey(streamId)) {

@@ -15,9 +15,9 @@ import java.util.concurrent.atomic.AtomicInteger;
 @Component
 public class RtspStreamManager {
 
-    private ConcurrentHashMap<String, SingleFrameSender> frameSenders;
-    private AtomicInteger idGenerator;
-    private ScheduledExecutorService executor ;
+    private final ConcurrentHashMap<String, SingleFrameSender> frameSenders;
+    private final AtomicInteger idGenerator;
+    private final ScheduledExecutorService executor ;
     //    private ExecutorService recordingExecutor = Executors.newCachedThreadPool();
     public RtspStreamManager() {
         frameSenders = new ConcurrentHashMap<>();
@@ -90,8 +90,8 @@ public class RtspStreamManager {
     }
     public void recordingCameras(){
         RecordingManager recordingManager = new RecordingManager();
-//        recordingManager.startRecording("fff","rtsp://admin:qwert12345@192.168.1.64/Streaming/channels/101",
-//                "C:/temp/AH",40000);
+        recordingManager.startRecording("fff","rtsp://192.168.1.100:554/live2.sdp",
+                "C:/temp/AH",60000);
 //        recordingManager.startRecording("fffa","rtsp://rtsp-test-server.viomic.com:554/stream",
 //                "C:/temp/vio",40000);
 //        recordingManager.startRecording("ffa","rtsp://192.168.0.117:554/live2.sdp",

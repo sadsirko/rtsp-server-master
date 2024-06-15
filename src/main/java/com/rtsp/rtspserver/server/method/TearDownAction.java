@@ -10,7 +10,7 @@ import io.netty.handler.codec.rtsp.RtspHeaderNames;
 import io.netty.handler.codec.rtsp.RtspVersions;
 
 public class TearDownAction implements MethodAction {
-    private static TearDownAction INSTANCE = new TearDownAction();
+    private static final TearDownAction INSTANCE = new TearDownAction();
 
     private TearDownAction() {
     }

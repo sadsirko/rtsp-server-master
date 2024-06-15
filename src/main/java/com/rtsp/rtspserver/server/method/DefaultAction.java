@@ -6,7 +6,7 @@ import io.netty.handler.codec.http.*;
 import io.netty.handler.codec.rtsp.RtspVersions;
 
 public class DefaultAction implements MethodAction {
-    private static DefaultAction INSTANCE = new DefaultAction();
+    private static final DefaultAction INSTANCE = new DefaultAction();
 
     private DefaultAction() {}
 

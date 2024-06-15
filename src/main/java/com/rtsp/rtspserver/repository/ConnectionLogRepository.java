@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 @Repository
 public class ConnectionLogRepository {
-    private Connection conn;
+    private final Connection conn;
 
     public ConnectionLogRepository() throws SQLException {
         this.conn = DatabaseConnection.getConnection();

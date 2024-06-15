@@ -18,8 +18,8 @@ import static org.opencv.imgcodecs.Imgcodecs.imwrite;
 
 @Slf4j
 public class SingleFrameSender {
-    private List<RtspSession> subscribers = new ArrayList<>();
-    private String rtspUrl;
+    private final List<RtspSession> subscribers = new ArrayList<>();
+    private final String rtspUrl;
     private FFmpegFrameGrabber grabber;
     private FFmpegFrameRecorder recorder;
     private int fileTimeBase;
@@ -29,14 +29,14 @@ public class SingleFrameSender {
     private long nextTimeStamp;
     private long startTimeStamp;
     private boolean isStart;
-    private long RECORD_LENGTH = 500;
+    private final long RECORD_LENGTH = 500;
 
     private boolean initialized = false;
 
     long t1;
     long pts = 0;  // Initialize PTS
 
-    private ExecutorService recordingExecutor = Executors.newSingleThreadExecutor();
+    private final ExecutorService recordingExecutor = Executors.newSingleThreadExecutor();
     public SingleFrameSender(String rtspUrl) {
         this.rtspUrl = rtspUrl;
     }

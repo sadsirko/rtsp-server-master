@@ -21,6 +21,11 @@ public class SecurityConfig {
                         .requestMatchers("/api/cameras").authenticated()  // Ensures all access to /api/cameras requires authentication
                         .anyRequest().permitAll()
                 )
+                .formLogin((form) -> form
+                        .loginPage("/login")
+                        .permitAll()
+                )
+                .logout((logout) -> logout.permitAll())
                 .httpBasic();  // Uses HTTP Basic Authentication
         return http.build();
     }
@@ -28,7 +33,8 @@ public class SecurityConfig {
     @Bean
     public UserDetailsService userDetailsService() {
         UserDetails user = User.withDefaultPasswordEncoder()
-
+                .username("1")
+                .password("1")
                 .roles("USER")  // Make sure the role "USER" is enough to access your protected resources
                 .build();
         return new InMemoryUserDetailsManager(user);

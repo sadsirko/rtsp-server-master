@@ -23,9 +23,9 @@ public class RtspServerHandler extends SimpleChannelInboundHandler<FullHttpReque
     @Getter
     private String rtspSourceUrl;
 
-    private RtspStreamManager rtspStreamManager;
+    private final RtspStreamManager rtspStreamManager;
 
-    private Map<Channel, RtspSession> lstChannels = new HashMap<>();
+    private final Map<Channel, RtspSession> lstChannels = new HashMap<>();
 
     @Autowired
     public RtspServerHandler(RtspStreamManager rtspStreamManager) {
@@ -48,6 +48,9 @@ public class RtspServerHandler extends SimpleChannelInboundHandler<FullHttpReque
     }
 
     protected static String extractURL(String input) {
+        if (input == null) {
+            return "Invalid URL";
+        }
         int portIndex = input.indexOf(":");
         if (portIndex != -1) {
             int secondSlashIndex = input.indexOf("/", portIndex + 3);
@@ -61,7 +64,10 @@ public class RtspServerHandler extends SimpleChannelInboundHandler<FullHttpReque
         return "Invalid URL";
     }
     protected static String extractURLWithoutId(String input) {
-        int portIndex = input.indexOf(":");
+        int portIndex;
+        if (input == null)
+            return "Invalid URL";
+        portIndex = input.indexOf(":");
         if (portIndex != -1) {
             int secondSlashIndex = input.indexOf("/", portIndex + 3);
             if (secondSlashIndex != -1) {

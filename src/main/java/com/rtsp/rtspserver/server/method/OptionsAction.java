@@ -10,7 +10,7 @@ import io.netty.handler.codec.rtsp.RtspHeaderNames;
 import io.netty.handler.codec.rtsp.RtspVersions;
 
 public class OptionsAction implements MethodAction {
-    private static OptionsAction INSTANCE = new OptionsAction();
+    private static final OptionsAction INSTANCE = new OptionsAction();
 
     private OptionsAction() {}
 

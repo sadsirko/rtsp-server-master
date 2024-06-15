@@ -11,7 +11,7 @@ import java.util.List;
 
 @Repository
 public class RoleRepository {
-    private Connection conn;
+    private final Connection conn;
 
     public RoleRepository() throws SQLException {
         this.conn = DatabaseConnection.getConnection();

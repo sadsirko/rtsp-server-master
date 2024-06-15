@@ -14,7 +14,7 @@ import java.util.UUID;
 
 @Slf4j
 public class SetupAction implements MethodAction {
-    private static SetupAction INSTANCE = new SetupAction();
+    private static final SetupAction INSTANCE = new SetupAction();
 
     private SetupAction() {
     }
@@ -31,7 +31,7 @@ public class SetupAction implements MethodAction {
         response.headers().set(RtspHeaderNames.SESSION, UUID.randomUUID().toString().substring(0, 12));
         String transport = rtspSession.parseTransport(request.headers().get(RtspHeaderNames.TRANSPORT));
         response.headers().set(RtspHeaderNames.TRANSPORT, transport);
-        log.info("SetUp response : " + response.toString());
+        log.info("SetUp response : " + response);
         return response;
     }
 }

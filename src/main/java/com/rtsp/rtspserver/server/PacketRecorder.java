@@ -18,9 +18,9 @@ public class PacketRecorder {
     private FFmpegFrameRecorder recorder;
     private boolean isRecording;
 
-    private String inputUrl;
-    private String outputUrl;
-    private long recordLength;
+    private final String inputUrl;
+    private final String outputUrl;
+    private final long recordLength;
 
     public PacketRecorder(String inputUrl, String outputUrl, long recordLength) {
         this.inputUrl = inputUrl;

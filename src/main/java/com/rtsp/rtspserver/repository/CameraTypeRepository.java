@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 @Repository
 public class CameraTypeRepository {
-    private Connection conn;
+    private final Connection conn;
 
     public CameraTypeRepository() throws SQLException {
         this.conn = DatabaseConnection.getConnection();

@@ -26,11 +26,12 @@ public class RecordController {
     public ResponseEntity<?> stopRecording(@RequestBody RecordRequest request) {
         boolean success = recordService.stopRecording(request.getCameraId());
         if (success) {
-            return ResponseEntity.ok().build();
+            return ResponseEntity.ok().build();  // Перевірте, чи ця лінія коду досягається під час виконання
         } else {
             return ResponseEntity.notFound().build();
         }
     }
+
     @GetMapping("/active/{cameraId}")
     public ResponseEntity<?> checkActiveRecording(@PathVariable int cameraId) {
         Recorder activeRecord = recordService.findActiveRecordByCameraId(cameraId);

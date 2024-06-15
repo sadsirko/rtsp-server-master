@@ -11,7 +11,7 @@ import java.util.List;
 
 @Repository
 public class RecordRepository {
-    private Connection conn;
+    private final Connection conn;
 
     public RecordRepository() throws SQLException {
         this.conn = DatabaseConnection.getConnection();

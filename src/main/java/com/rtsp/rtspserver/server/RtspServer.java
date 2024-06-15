@@ -28,11 +28,11 @@ import java.util.concurrent.ScheduledExecutorService;
 @Slf4j
 @Component
 public class RtspServer {
-    private ScheduledExecutorService executor = Executors.newScheduledThreadPool(2);
+    private final ScheduledExecutorService executor = Executors.newScheduledThreadPool(2);
 
     private String serverHost;
 
-    private int serverPort = 554;
+    private final int serverPort = 554;
 
     private ServerBootstrap serverBootstrap;
 

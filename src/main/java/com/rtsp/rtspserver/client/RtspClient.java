@@ -51,7 +51,7 @@ public class RtspClient {
         Frame frame;
         while ((frame = grabber.grabImage()) != null) {
             canvasFrame.showImage(frame);
-            if (canvasFrame.isDisplayable() == false) {
+            if (!canvasFrame.isDisplayable()) {
                 break; // Stop if the display window is closed
             }
         }

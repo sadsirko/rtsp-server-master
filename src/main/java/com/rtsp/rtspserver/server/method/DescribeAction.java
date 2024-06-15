@@ -3,6 +3,8 @@ package com.rtsp.rtspserver.server.method;
 import com.rtsp.rtspserver.config.RtspProperties;
 import com.rtsp.rtspserver.server.RtspServerHandler;
 import com.rtsp.rtspserver.server.RtspSession;
+import com.rtsp.rtspserver.service.CameraService;
+import com.rtsp.rtspserver.service.CameraTypeService;
 import io.netty.buffer.Unpooled;
 import io.netty.handler.codec.http.*;
 import io.netty.handler.codec.rtsp.RtspHeaderNames;
@@ -21,11 +23,18 @@ import static org.bytedeco.ffmpeg.global.avformat.*;
 
 @Slf4j
 public class DescribeAction implements MethodAction {
-    private static DescribeAction INSTANCE = new DescribeAction();
+
+
+    @Autowired
+    private CameraService cameraService;
+
+    @Autowired
+    private CameraTypeService cameraTypeService;
+    private static final DescribeAction INSTANCE = new DescribeAction();
 
     private DescribeAction() {}
 //    private String rtspSourceUrl = "rtsp://192.168.168.152:554";
-    private String rtspSourceUrl = "rtsp://192.168.0.138:554";
+    private final String rtspSourceUrl = "rtsp://192.168.0.138:554";
 //    private String rtspSourceUrl = "rtsp://192.168.1.5:554";
 
     public String getRtspSourceUrl() {
@@ -36,13 +45,11 @@ public class DescribeAction implements MethodAction {
     }
     @Override
     public FullHttpResponse buildHttpResponse(HttpRequest request, RtspServerHandler serverHandler, RtspSession rtspSession) {
-//        String sdpDescription = getSdpMsg("rtsp://rtsp-test-server.viomic.com:554/stream");
-//        String sdpDescription = getSdpMsg("rtsp://admin:1234qwert@192.168.1.64:554/streaming/channels/101");
-//        String sdpDescription = getSdpMsg("rtsp://rtspstream:0a5f3a892823e27df24c79177d68725f@zephyr.rtsp.stream/pattern");
+
 //        String sdpDescription = getSdpMsg(rtspSourceUrl);
         log.info("Build describe");
-//        String sdpDescription = createSdpDescription2(rtspSourceUrl);
-        String sdpDescription = createSdpDescriptionTpLink2(rtspSourceUrl);
+        String sdpDescription = createSdpDescription2(rtspSourceUrl);
+//        String sdpDescription = createSdpDescriptionTpLink2(rtspSourceUrl);
 
 //        String sdpDescription = createSdpDescription(rtspSourceUrl);
         FullHttpResponse response = new DefaultFullHttpResponse(RtspVersions.RTSP_1_0, HttpResponseStatus.OK,
@@ -72,7 +79,7 @@ public class DescribeAction implements MethodAction {
         return "v=0\r\n" +
                 "o=- 0 0 IN IP4 127.0.0.1\r\n" +
                 "s=No Name\r\n" +
-                "c=IN IP4 192.168.0.183\r\n" +
+                "c=IN IP4 192.168.168.138\r\n" +
                 "t=0 0\r\n" +
                 "a=tool:libavformat 60.16.100\r\n" +
                 "m=video 0 RTP/AVP 96\r\n" +
@@ -87,19 +94,6 @@ public class DescribeAction implements MethodAction {
                 ;
     }
 
-    private String createSdpDescriptionTpLink(String rtspUrl) {
-        return "v=0\r\n" +
-                "o=- 0 0 IN IP4 127.0.0.1\r\n" +
-                "s=No Name\r\n" +
-                "c=IN IP4 192.168.0.183\r\n" +
-                "t=0 0\r\n" +
-                "a=tool:libavformat 60.16.100\r\n" +
-                "m=video 0 RTP/AVP 96\r\n" +
-                "a=rtpmap:96 H264/90000\r\n" +
-                "a=fmtp:96 packetization-mode=1; profile-level-id=640028; sprop-parameter-sets=Z2QAFqxyBEGx/k5qAgICgAAAAwCAAAAeB4sWwjA=,aOhDhEsiwA==\r\n" +
-                "a=control:streamid=0\r\n"
-                ;
-    }
     private String createSdpDescriptionTpLink2(String rtspUrl) {
         return "v=0\r\n"
                 + "o=- 1293913308916078 1 IN IP4 "+ rtspUrl+"\r\n"

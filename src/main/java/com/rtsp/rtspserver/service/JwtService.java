@@ -6,7 +6,7 @@ import io.jsonwebtoken.SignatureAlgorithm;
 import java.util.Date;
 
 public class JwtService {
-    private String secretKey = "your_secret_key"; // Можете зберегти в .env файлі
+    private final String secretKey = "your_secret_key"; // Можете зберегти в .env файлі
 
     public String generateToken(String username) {
         long nowMillis = System.currentTimeMillis();

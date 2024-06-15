@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.sql.Timestamp;
-import java.util.List;
 
 @Service
 public class RecordService {
@@ -15,7 +14,11 @@ public class RecordService {
     private RecordRepository recordRepository;
 
     public Recorder startRecording(int cameraId, int durationTime) {
-        System.out.println("Start recording");
+        // Перевірка на допустимий діапазон тривалості запису
+        if (durationTime < 1 || durationTime > 30) {
+            throw new IllegalArgumentException("Duration must be between 1 and 30 minutes.");
+        }
+
         Timestamp startTime = new Timestamp(System.currentTimeMillis());
         Recorder record = new Recorder(cameraId, startTime, null, durationTime);
         return recordRepository.addRecord(record);
@@ -30,6 +33,7 @@ public class RecordService {
         }
         return false;
     }
+
     public Recorder findActiveRecordByCameraId(int cameraId) {
         return recordRepository.findRecordByCameraId(cameraId);
     }

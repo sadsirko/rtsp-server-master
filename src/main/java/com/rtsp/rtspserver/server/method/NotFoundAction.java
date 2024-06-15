@@ -10,7 +10,7 @@ import io.netty.handler.codec.rtsp.RtspHeaderNames;
 import io.netty.handler.codec.rtsp.RtspVersions;
 
 public class NotFoundAction implements MethodAction {
-    private static NotFoundAction INSTANCE = new NotFoundAction();
+    private static final NotFoundAction INSTANCE = new NotFoundAction();
 
     private NotFoundAction() {}
 
