@@ -22,32 +22,27 @@ import static org.bytedeco.ffmpeg.global.avformat.*;
 @Slf4j
 public class DescribeAction implements MethodAction {
 
-
-    @Autowired
-    private CameraService cameraService;
-
-    @Autowired
-    private CameraTypeService cameraTypeService;
     private static final DescribeAction INSTANCE = new DescribeAction();
 
     private DescribeAction() {}
 //    private String rtspSourceUrl = "rtsp://192.168.168.152:554";
-    private final String rtspSourceUrl = "rtsp://192.168.0.138:554";
+    private final String rtspSourceUrl = "rtsp://192.168.168.138:554";
 //    private String rtspSourceUrl = "rtsp://192.168.1.5:554";
 
-    public String getRtspSourceUrl() {
-        return rtspSourceUrl;
-    }
     public static DescribeAction getInstance() {
         return INSTANCE;
     }
     @Override
     public FullHttpResponse buildHttpResponse(HttpRequest request, RtspServerHandler serverHandler, RtspSession rtspSession) {
-
-//        String sdpDescription = getSdpMsg(rtspSourceUrl);
-        log.info("Build describe");
-        String sdpDescription = createSdpDescription2(rtspSourceUrl);
-//        String sdpDescription = createSdpDescriptionTpLink2(rtspSourceUrl);
+        log.info(request.uri());
+        String sdpDescription;
+        if (request.uri().contains("Streaming/channels")) {
+            sdpDescription = createSdpDescription2(rtspSourceUrl);
+        } else if (request.uri().contains("/live")) {
+            sdpDescription = createSdpDescriptionTpLink2(rtspSourceUrl);
+        } else {
+            sdpDescription = createSdpDescription(rtspSourceUrl); // Запасний варіант
+        }
 
 //        String sdpDescription = createSdpDescription(rtspSourceUrl);
         FullHttpResponse response = new DefaultFullHttpResponse(RtspVersions.RTSP_1_0, HttpResponseStatus.OK,

@@ -40,7 +40,7 @@ public class RtspSession {
     private String rtpUrl;
 
     private double timeStamp;
-
+    private String streamUrl;
     private double timeStep;
 
     public RtspSession(Channel channel, SingleFrameSender frameSender) {
@@ -191,6 +191,13 @@ public class RtspSession {
         log.info(String.valueOf(grabber.getFrameRate()));
         AVFormatContext formatContext = grabber.getFormatContext();
         recorder.start(formatContext);
+    }
+    public void setStreamUrl(String url) {
+        this.streamUrl = url;
+    }
+
+    public String getStreamUrl() {
+        return this.streamUrl;
     }
 }
 

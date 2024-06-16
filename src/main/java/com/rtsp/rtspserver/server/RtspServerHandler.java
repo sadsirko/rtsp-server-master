@@ -109,6 +109,7 @@ public class RtspServerHandler extends SimpleChannelInboundHandler<FullHttpReque
         if (session == null) {
             log.info("get it {}", sender.getRtspUrl());
             session = new RtspSession(channel, sender);
+            session.setStreamUrl(streamUrl);
             lstChannels.put(channel, session);
         } else {
             log.info("already have channel {}", sender.getRtspUrl());
