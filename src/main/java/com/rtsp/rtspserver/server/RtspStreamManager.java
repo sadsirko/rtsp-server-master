@@ -90,15 +90,9 @@ public class RtspStreamManager {
     }
     public void recordingCameras(){
         RecordingManager recordingManager = new RecordingManager();
-        recordingManager.startRecording("fff","rtsp://192.168.1.100:554/live2.sdp",
-                "C:/temp/AH",60000);
-//        recordingManager.startRecording("fffa","rtsp://rtsp-test-server.viomic.com:554/stream",
-//                "C:/temp/vio",40000);
-//        recordingManager.startRecording("ffa","rtsp://192.168.0.117:554/live2.sdp",
-//                "C:/temp/camera117",40000);
-//        recordingManager.startRecording("ffg","rtsp://rtspstream:b1c92cda2507b01c4f02b452c65b56c0@zephyr.rtsp.stream/pattern",
-//                "C:/temp/A1",100000);
-
+//        recordingManager.startRecording("fff","rtsp://192.168.1.100:554/live2.sdp",
+//                "C:/temp/AH",60000);
+//
     }
 
 //    public void streamFromSource() {

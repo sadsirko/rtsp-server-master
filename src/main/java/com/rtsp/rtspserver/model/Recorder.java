@@ -7,13 +7,13 @@ public class Recorder {
     private int cameraId;
     private Timestamp startTime;
     private Timestamp endTime;
-    private int durationTime;
+    private long durationTime;
 
-    public int getDurationTime() {
+    public long getDurationTime() {
         return durationTime;
     }
 
-    public void setDurationTime(int durationTime) {
+    public void setDurationTime(long durationTime) {
         this.durationTime = durationTime;
     }
 

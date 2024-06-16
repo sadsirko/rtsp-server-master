@@ -18,6 +18,8 @@ public class RecordController {
 
     @PostMapping("/start")
     public ResponseEntity<?> startRecording(@RequestBody RecordRequest request) {
+        System.out.println("request.getDurationTime()");
+        System.out.println(request.getDurationTime());
         Recorder record = recordService.startRecording(request.getCameraId(), request.getDurationTime());
         return ResponseEntity.ok(record);
     }

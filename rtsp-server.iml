@@ -5,6 +5,7 @@
       <configuration>
         <setting name="validation-enabled" value="true" />
         <datasource-mapping>
+          <factory-entry name="entityManagerFactory" value="3c70308f-c5ba-4ef2-96f3-6da82db5b22e" />
           <factory-entry name="rtsp-server" value="3c70308f-c5ba-4ef2-96f3-6da82db5b22e" />
         </datasource-mapping>
         <naming-strategy-map />

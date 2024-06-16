@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 public class RecordRequest {
     private Integer cameraId;  // ID камери для старту запису
-    private Integer recordId;  // ID запису для зупинки запису
+//    private Integer recordId;  // ID запису для зупинки запису
     private Integer durationTime; // Тривалість запису в секундах
 
     // Конструктори, гетери та сетери
@@ -21,13 +21,13 @@ public class RecordRequest {
         this.cameraId = cameraId;
     }
 
-    public Integer getRecordId() {
-        return recordId;
-    }
-
-    public void setRecordId(Integer recordId) {
-        this.recordId = recordId;
-    }
+//    public Integer getRecordId() {
+//        return recordId;
+//    }
+//
+//    public void setRecordId(Integer recordId) {
+//        this.recordId = recordId;
+//    }
 
     public Integer getDurationTime() {
         return durationTime;

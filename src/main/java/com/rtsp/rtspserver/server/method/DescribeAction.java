@@ -1,6 +1,4 @@
 package com.rtsp.rtspserver.server.method;
-
-import com.rtsp.rtspserver.config.RtspProperties;
 import com.rtsp.rtspserver.server.RtspServerHandler;
 import com.rtsp.rtspserver.server.RtspSession;
 import com.rtsp.rtspserver.service.CameraService;

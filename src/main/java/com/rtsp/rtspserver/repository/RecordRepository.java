@@ -62,7 +62,7 @@ public class RecordRepository {
         try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
             pstmt.setInt(1, record.getCameraId());
             pstmt.setTimestamp(2, record.getStartTime());
-            pstmt.setInt(3, record.getDurationTime());
+            pstmt.setLong(3, record.getDurationTime());
             ResultSet rs = pstmt.executeQuery();
             if (rs.next()) {
                 record.setRecordId(rs.getInt(1));

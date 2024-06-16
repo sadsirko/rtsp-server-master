@@ -4,6 +4,30 @@
       "name": "rtsp.server",
       "type": "com.rtsp.rtspserver.config.RtspProperties",
       "sourceType": "com.rtsp.rtspserver.config.RtspProperties"
+    },
+    {
+      "name": "spring.datasource",
+      "type": "com.zaxxer.hikari.HikariDataSource",
+      "sourceType": "com.rtsp.rtspserver.server.config.DatabaseConfig",
+      "sourceMethod": "dataSource(org.springframework.boot.autoconfigure.jdbc.DataSourceProperties)"
+    },
+    {
+      "name": "spring.datasource.health-check-registry",
+      "type": "java.lang.Object",
+      "sourceType": "com.zaxxer.hikari.HikariDataSource",
+      "sourceMethod": "getHealthCheckRegistry()"
+    },
+    {
+      "name": "spring.datasource.metric-registry",
+      "type": "java.lang.Object",
+      "sourceType": "com.zaxxer.hikari.HikariDataSource",
+      "sourceMethod": "getMetricRegistry()"
+    },
+    {
+      "name": "spring.datasource.xa",
+      "type": "org.springframework.boot.autoconfigure.jdbc.DataSourceProperties$Xa",
+      "sourceType": "org.springframework.boot.autoconfigure.jdbc.DataSourceProperties",
+      "sourceMethod": "getXa()"
     }
   ],
   "properties": [
@@ -16,6 +40,206 @@
       "name": "rtsp.server.port",
       "type": "java.lang.Integer",
       "sourceType": "com.rtsp.rtspserver.config.RtspProperties"
+    },
+    {
+      "name": "spring.datasource.allow-pool-suspension",
+      "type": "java.lang.Boolean",
+      "sourceType": "com.zaxxer.hikari.HikariDataSource"
+    },
+    {
+      "name": "spring.datasource.auto-commit",
+      "type": "java.lang.Boolean",
+      "sourceType": "com.zaxxer.hikari.HikariDataSource"
+    },
+    {
+      "name": "spring.datasource.catalog",
+      "type": "java.lang.String",
+      "sourceType": "com.zaxxer.hikari.HikariDataSource"
+    },
+    {
+      "name": "spring.datasource.connection-init-sql",
+      "type": "java.lang.String",
+      "sourceType": "com.zaxxer.hikari.HikariDataSource"
+    },
+    {
+      "name": "spring.datasource.connection-test-query",
+      "type": "java.lang.String",
+      "sourceType": "com.zaxxer.hikari.HikariDataSource"
+    },
+    {
+      "name": "spring.datasource.connection-timeout",
+      "type": "java.lang.Long",
+      "sourceType": "com.zaxxer.hikari.HikariDataSource"
+    },
+    {
+      "name": "spring.datasource.data-source-class-name",
+      "type": "java.lang.String",
+      "sourceType": "com.zaxxer.hikari.HikariDataSource"
+    },
+    {
+      "name": "spring.datasource.data-source-j-n-d-i",
+      "type": "java.lang.String",
+      "sourceType": "com.zaxxer.hikari.HikariDataSource"
+    },
+    {
+      "name": "spring.datasource.data-source-properties",
+      "type": "java.util.Properties",
+      "sourceType": "com.zaxxer.hikari.HikariDataSource"
+    },
+    {
+      "name": "spring.datasource.driver-class-name",
+      "type": "java.lang.String",
+      "sourceType": "com.zaxxer.hikari.HikariDataSource"
+    },
+    {
+      "name": "spring.datasource.embedded-database-connection",
+      "type": "org.springframework.boot.jdbc.EmbeddedDatabaseConnection",
+      "sourceType": "org.springframework.boot.autoconfigure.jdbc.DataSourceProperties"
+    },
+    {
+      "name": "spring.datasource.exception-override-class-name",
+      "type": "java.lang.String",
+      "sourceType": "com.zaxxer.hikari.HikariDataSource"
+    },
+    {
+      "name": "spring.datasource.generate-unique-name",
+      "type": "java.lang.Boolean",
+      "sourceType": "org.springframework.boot.autoconfigure.jdbc.DataSourceProperties"
+    },
+    {
+      "name": "spring.datasource.health-check-properties",
+      "type": "java.util.Properties",
+      "sourceType": "com.zaxxer.hikari.HikariDataSource"
+    },
+    {
+      "name": "spring.datasource.idle-timeout",
+      "type": "java.lang.Long",
+      "sourceType": "com.zaxxer.hikari.HikariDataSource"
+    },
+    {
+      "name": "spring.datasource.initialization-fail-timeout",
+      "type": "java.lang.Long",
+      "sourceType": "com.zaxxer.hikari.HikariDataSource"
+    },
+    {
+      "name": "spring.datasource.isolate-internal-queries",
+      "type": "java.lang.Boolean",
+      "sourceType": "com.zaxxer.hikari.HikariDataSource"
+    },
+    {
+      "name": "spring.datasource.jdbc-url",
+      "type": "java.lang.String",
+      "sourceType": "com.zaxxer.hikari.HikariDataSource"
+    },
+    {
+      "name": "spring.datasource.jndi-name",
+      "type": "java.lang.String",
+      "sourceType": "org.springframework.boot.autoconfigure.jdbc.DataSourceProperties"
+    },
+    {
+      "name": "spring.datasource.keepalive-time",
+      "type": "java.lang.Long",
+      "sourceType": "com.zaxxer.hikari.HikariDataSource"
+    },
+    {
+      "name": "spring.datasource.leak-detection-threshold",
+      "type": "java.lang.Long",
+      "sourceType": "com.zaxxer.hikari.HikariDataSource"
+    },
+    {
+      "name": "spring.datasource.login-timeout",
+      "type": "java.lang.Integer",
+      "sourceType": "com.zaxxer.hikari.HikariDataSource"
+    },
+    {
+      "name": "spring.datasource.max-lifetime",
+      "type": "java.lang.Long",
+      "sourceType": "com.zaxxer.hikari.HikariDataSource"
+    },
+    {
+      "name": "spring.datasource.maximum-pool-size",
+      "type": "java.lang.Integer",
+      "sourceType": "com.zaxxer.hikari.HikariDataSource"
+    },
+    {
+      "name": "spring.datasource.metrics-tracker-factory",
+      "type": "com.zaxxer.hikari.metrics.MetricsTrackerFactory",
+      "sourceType": "com.zaxxer.hikari.HikariDataSource"
+    },
+    {
+      "name": "spring.datasource.minimum-idle",
+      "type": "java.lang.Integer",
+      "sourceType": "com.zaxxer.hikari.HikariDataSource"
+    },
+    {
+      "name": "spring.datasource.name",
+      "type": "java.lang.String",
+      "sourceType": "org.springframework.boot.autoconfigure.jdbc.DataSourceProperties"
+    },
+    {
+      "name": "spring.datasource.password",
+      "type": "java.lang.String",
+      "sourceType": "com.zaxxer.hikari.HikariDataSource"
+    },
+    {
+      "name": "spring.datasource.pool-name",
+      "type": "java.lang.String",
+      "sourceType": "com.zaxxer.hikari.HikariDataSource"
+    },
+    {
+      "name": "spring.datasource.read-only",
+      "type": "java.lang.Boolean",
+      "sourceType": "com.zaxxer.hikari.HikariDataSource"
+    },
+    {
+      "name": "spring.datasource.register-mbeans",
+      "type": "java.lang.Boolean",
+      "sourceType": "com.zaxxer.hikari.HikariDataSource"
+    },
+    {
+      "name": "spring.datasource.scheduled-executor",
+      "type": "java.util.concurrent.ScheduledExecutorService",
+      "sourceType": "com.zaxxer.hikari.HikariDataSource"
+    },
+    {
+      "name": "spring.datasource.schema",
+      "type": "java.lang.String",
+      "sourceType": "com.zaxxer.hikari.HikariDataSource"
+    },
+    {
+      "name": "spring.datasource.transaction-isolation",
+      "type": "java.lang.String",
+      "sourceType": "com.zaxxer.hikari.HikariDataSource"
+    },
+    {
+      "name": "spring.datasource.type",
+      "type": "java.lang.Class<? extends javax.sql.DataSource>",
+      "sourceType": "org.springframework.boot.autoconfigure.jdbc.DataSourceProperties"
+    },
+    {
+      "name": "spring.datasource.url",
+      "type": "java.lang.String",
+      "sourceType": "org.springframework.boot.autoconfigure.jdbc.DataSourceProperties"
+    },
+    {
+      "name": "spring.datasource.username",
+      "type": "java.lang.String",
+      "sourceType": "com.zaxxer.hikari.HikariDataSource"
+    },
+    {
+      "name": "spring.datasource.validation-timeout",
+      "type": "java.lang.Long",
+      "sourceType": "com.zaxxer.hikari.HikariDataSource"
+    },
+    {
+      "name": "spring.datasource.xa.data-source-class-name",
+      "type": "java.lang.String",
+      "sourceType": "org.springframework.boot.autoconfigure.jdbc.DataSourceProperties$Xa"
+    },
+    {
+      "name": "spring.datasource.xa.properties",
+      "type": "java.util.Map<java.lang.String,java.lang.String>",
+      "sourceType": "org.springframework.boot.autoconfigure.jdbc.DataSourceProperties$Xa"
     }
   ],
   "hints": []
